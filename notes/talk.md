@@ -6,6 +6,8 @@ and now I'd like to share with you some of the things I learnt along that
 journey. Specifically I'd like to talk about linters, parsers, compilers and
 the BEAM.
 
+journey, Somewhere along which I decided I knew enough to consider creating a language that compiled to the beam. Now I'm going to share with you some of the things I learnt about what you need to know if you were to also consider doing this. Specifically I am going to be talking about...
+
 Prior to discovering Elixir I had been enthusiastically exploring Haskell, but
 professionally I was writing Ruby. Perhaps due to the combination of the
 functional style of problem solving and the Ruby-esc community Elixir
