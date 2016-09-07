@@ -6,7 +6,13 @@ and now I'd like to share with you some of the things I learnt along that
 journey. Specifically I'd like to talk about linters, parsers, compilers and
 the BEAM.
 
-journey, Somewhere along which I decided I knew enough to consider creating a language that compiled to the beam. Now I'm going to share with you some of the things I learnt about what you need to know if you were to also consider doing this. Specifically I am going to be talking about...
+---------------------
+.... journey, Somewhere along which I decided I knew enough to consider creating a language that compiled to the beam. Now I'm going to share with you some of the things I learnt about what it is helpful to know before you're ready... if you were to also consider doing this. Specifically I am going to be talking about linters...
+
+
+Also maybe you can do an overview like, components of a language
+And you talk about AST's too... You even make one?
+----------------------
 
 Prior to discovering Elixir I had been enthusiastically exploring Haskell, but
 professionally I was writing Ruby. Perhaps due to the combination of the
@@ -25,6 +31,10 @@ making one myself.
 ```
 Source code -> Errors
 ```
+----------
+slide suggestion
+Linters: What you got wrong (funny cartoon)
+------------
 
 Linters are effectvely simple functions that take source code files as an
 input, and return a number of errors to the user, so I figure it shouldn't be
@@ -79,7 +89,11 @@ And lastly we have another punctuation token with the value of an exclaimation m
 
 Here we can do the same with Elixir code. Here's a snippet of code in which I
 pipe the number one into a function called "add" that takes an additional
-variable of 2. When tokenized it becomes this a list of 4 tokens:
+variable of 2. When tokenized it becomes this a 
+-----------
+typo?
+----------
+list of 4 tokens:
 
 A number token with a value of 1.
 An arrow_op token with a value of the characters that make up the pipe operator.
@@ -267,8 +281,15 @@ against offending nodes and returns the atom `:error` in place of the
 accumulator, and the other clause is a catch all for all other nodes.
 
 And just like that I had a working linter. All that was left was to write more
-rules and to do some plumbing to run them and present errors to the user. I
-couldn't believe how easy Elixir had made this task for me. If you'd like to
+rules and to do some plumbing to run them and present errors to the user. 
+------------
+I
+couldn't believe how easy Elixir had made this task for me.
+----------------- 
+suggest rephrase above paragraph, to 'Elixir makes this easy thanks to prewalk and the compiler being in Erlang (etc)
+as less patronising.
+----------------
+If you'd like to
 see what came of this project it can be found on GitHub and Hex under the name
 `dogma`.
 
@@ -546,7 +567,11 @@ Now I get the value I want for string tokens. Later I'll probably also want to
 add helper functions for parsing numbers, handling escaped characters in
 strings, and so on.
 
-And with that I have a working tokenizer, so I can move onto building a super
+And with that I have a working tokenizer,
+---------------
+repetition of above line
+-------------------
+so I can move onto building a super
 simple AST. In the same way that Erlang tokenization supplies a tool for
 tokenization it also supplies a tool for parsing, the Yecc module. Like Leex
 it's used by writing a module with a specific syntax and file extension, which
