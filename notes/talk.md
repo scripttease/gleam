@@ -7,21 +7,30 @@ journey. Specifically I'd like to talk about linters, parsers, compilers and
 the BEAM.
 
 ---------------------
-.... journey, Somewhere along which I decided I knew enough to consider creating a language that compiled to the beam. Now I'm going to share with you some of the things I learnt about what it is helpful to know before you're ready... if you were to also consider doing this. Specifically I am going to be talking about linters...
+.... journey, Somewhere along which I decided I knew enough to consider creating a language that compiled to the beam. And its actually a fuuny story, and you will see why later on...
+But I'm going to start with you some of the things I learnt about that are helpful to know before you make a language on the Beam... if you were to also consider doing this. Specifically I am going to be talking about linters...
 
 
-Also maybe you can do an overview like, components of a language
-And you talk about AST's too... You even make one?
+(Also maybe you can start with overview like, what are the components of a language... we need this this this )
+(Also you talk about AST's too... You even make one? So that could go in the linters parsers compilers list)
+
 ----------------------
 
-Prior to discovering Elixir I had been enthusiastically exploring Haskell, but
-professionally I was writing Ruby. Perhaps due to the combination of the
-functional style of problem solving and the Ruby-esc community Elixir
-instantly resonated with me and quickly became the language I wanted to write
-every day. With Haskell I was solving puzzles and coding challenges, but with
-Elixir I found myself wanting to be constructive and productive, I wanted to
-build tools.
+-----------
+> Prior to discovering Elixir I had been enthusiastically exploring Haskell, but
+> professionally I was writing Ruby. Perhaps due to the combination of the
+> functional style of problem solving and the Ruby-esc community Elixir
+> instantly resonated with me and quickly became the language I wanted to write
+> every day. With Haskell I was solving puzzles and coding challenges, but with
+> Elixir I found myself wanting to be constructive and productive, I wanted to
+> build tools.
+-------------
+I would leave the above para out
+-------------
 
+------------
+When I first discovered Elixir I was a ruby dev.
+-----------
 Back in the Ruby world I had developed a soft spot for static analysis
 programs. One such tool was the style linter Rubocop, which is a program that
 inspects your codebase for style errors and common mistakes. Elixir being a
@@ -89,11 +98,7 @@ And lastly we have another punctuation token with the value of an exclaimation m
 
 Here we can do the same with Elixir code. Here's a snippet of code in which I
 pipe the number one into a function called "add" that takes an additional
-variable of 2. When tokenized it becomes this a 
------------
-typo?
-----------
-list of 4 tokens:
+variable of 2. When tokenized it becomes this a list of 4 tokens:
 
 A number token with a value of 1.
 An arrow_op token with a value of the characters that make up the pipe operator.
@@ -282,12 +287,14 @@ accumulator, and the other clause is a catch all for all other nodes.
 
 And just like that I had a working linter. All that was left was to write more
 rules and to do some plumbing to run them and present errors to the user. 
+
 ------------
 I
 couldn't believe how easy Elixir had made this task for me.
 ----------------- 
-suggest rephrase above paragraph, to 'Elixir makes this easy thanks to prewalk and the compiler being in Erlang (etc)
-as less patronising.
+
+I suggest you rephrase above paragraph, to 'Elixir makes this easy thanks to ... (prewalk and the compiler being in Erlang (etc))
+as it is less patronising. Or, I was suprised at how easy Elixir make this for us.
 ----------------
 If you'd like to
 see what came of this project it can be found on GitHub and Hex under the name
@@ -501,7 +508,12 @@ characters in the second position, which I access through the magic variable
 ], _}
 ```
 
-And with that I have a working tokenizer! If I place this in the `src`
+And with that I have a working tokenizer! 
+-----------
+you repeat this phrase below
+--------------
+
+If I place this in the `src`
 directory Mix will compile this to an Erlang module which exposes a `string/1`
 function that takes a charlist of code and returns a list of tokens. Because
 I used tuples with an atom as the first element for my tokens I get back an
@@ -812,3 +824,27 @@ names -> name id classes
 With this record I can use a nice named literal syntax for setting the various
 values, and any that I neglect to fill in will use the default value specified
 in the record definition.
+
+
+----------
+Then after the end of this you can say:
+So now I have a thing that does x and y and makes functions and compiles to x.
+And that's what a language does.
+So it looks like I've got the basis for a new language here and ive done this accidentally - that is so cool!
+what if i tried to make a real one? Deliberately this time? I'd do this....
+
+summarise steps required
+
+ok this compiles to the elixir ast BUT
+
+how would i do this compiling the c erl AST? so ie to the BEAM.
+
+hand wavy summary explanation of c erl
+
+-----------
+-----------
+Summary 
+so with elixir and erlang we have this toolkit and its not so avail in other languages and its great and it means we can make stuff - and as I've done, all the little bits mean you can make lots of little interesting things
+Or someone could say that hey I like strong types lets make something LIKE this but with strong types...
+Its great that there are new languages on the beam more and more recently ....can there be a new one on the beam like string types? Is there room for that? Sure, why not? That's up to you. But in the meantime, if you want to try that, or want to simply try making your own templating langauge, what you have with Elixir and Erlang are tools that not only make this possible but actually help you out and hopefully I've convinced you that you can try...
+-------------
